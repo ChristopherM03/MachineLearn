@@ -26,7 +26,7 @@ Once you are ready to go you can run the program with the following command line
 python3 nnpytorch.py
 ```
 
-##What does this do?
+## **What does this do? **
 
 To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
 ```
@@ -34,5 +34,12 @@ import torch
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 import matplotlib.pyplot as plt
+```
 
+In the next chunk of code, this is a simple way of loading in already created data from the Pytorch library. When first running the program you will be running these two lines and downloading data.
+
+```Python
+training_data = datasets.MNIST(root=".", train=True, download=True, transform=ToTensor())
+
+test_data = datasets.MNIST(root=".", train=False, download=True, transform=ToTensor())
 ```
