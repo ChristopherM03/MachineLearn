@@ -26,10 +26,10 @@ Once you are ready to go you can run the program with the following command line
 python3 nnpytorch.py
 ```
 
-## **What does this do? **
+## What does this do? 
 
 To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
-```
+```Python
 import torch
 from torchvision import datasets
 from torchvision.transforms import ToTensor
@@ -43,3 +43,8 @@ training_data = datasets.MNIST(root=".", train=True, download=True, transform=To
 
 test_data = datasets.MNIST(root=".", train=False, download=True, transform=ToTensor())
 ```
+These are datasets inside the Pytorch library that you can see will be donwloaded on your device. After that is done with the code, create some new lines and add the following line:
+```Python
+print(training_data[0])
+```
+
