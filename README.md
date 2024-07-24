@@ -8,17 +8,31 @@ In order to first do this you need to be able to download the libraries. For thi
 ```
 sudo apt install python3-pip
 ```
-After that, head over to the pytorch website and select the prerequesites in order to download the correct version for our device:
-
-https://pytorch.org/get-started/locally/
-
-At this page you can see that there are a series of boxes to check, for my device as well as program it will work on Linux, through the Pip package, and Python as well as run on the CPU. The Pytorch Build which I chose was Stable (2.3.1). Here is my command.
+To actually install Pytorch you will have to run a command line that is based off of the device you are using. For my device as well as program it will work on Linux, through the Pip package, and Python as well as run on the CPU. When working with Pytroch I could only work with the one that worked on my CPU so that is when I have in this command line. The Pytorch Build which I chose was Stable (2.3.1). Here is my command.
 ```
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 ```
+If you do not have the same device I am using then head over to the pytorch website and select the prerequesites in order to download the correct version for our device:
+
+https://pytorch.org/get-started/locally/
+
 Once you are done with that you are all set with Pytorch, for this program you will also visualize some data so you also need to install matplot which with pip can be done using the following command:
 ```
 sudo apt-get install python3-matplotlib
 ```
 
-Once you are ready to go you can run the program!
+Once you are ready to go you can run the program with the following command line!
+```
+python3 nnpytorch.py
+```
+
+##What does this do?
+
+To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
+```
+import torch
+from torchvision import datasets
+from torchvision.transforms import ToTensor
+import matplotlib.pyplot as plt
+
+```
