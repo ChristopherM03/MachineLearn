@@ -20,13 +20,63 @@ Once you are done with that you are all set with Pytorch, for this program you w
 ```
 sudo apt-get install python3-matplotlib
 ```
+For our demo lets install one more thing which is NumPy, in the command line run the following::
+```
+pip install NumPy
+```
+After all of this now you can run the code provided, but before this lets learn a little about Pytorch and some of its structures. In your favorite text editor create a new Python file named "testPytorch.py". Inside that file import the necessary libraries, for this demo you will need to import the torch library so at the start of the file insert the following:
+```
+import torch
+```
+Now we can look at a crucial data structure for Pytorch, which are tensors.
 
+
+## What are tensors?
+Tensors are extremely similer to the arrays that we have used in Pyton to hold values, they are also similer to matrices, the use of tensors is to perform mathematical operations on large sets of data. We can view a tensor with the following code:
+```
+x = torch.empty(3, 4)
+print(type(x))
+print(x)
+```
+You can then run your file with the following command line:
+```
+python3 testPytorch.py
+```
+For your output you should see a 2-dimensional tensor with 3 rows and 4 columns. For the most part tensors work with different values such as 0, and 1 and everything in between so lets create those as well with the following code:
+```
+zeros = torch.zeros(2, 3)
+print(zeros)
+
+ones = torch.ones(2, 3)
+print(ones)
+
+torch.manual_seed(1729)
+random = torch.rand(2, 3)
+print(random)
+```
+Now we have an additional 3 more tensors, one populated with zeroes, another with ones, and the last one with random integers between zero and one. We can also very easily use NumPy to create these tensors, NumPy is a Python library which focuses on creating large arrays and matrices as well as helping with mathematical operations between those data structures. At the top of the file import the following:
+```
+import numpy as np
+```
+You can comment out everything we have so far using the "#" symbol but leave everything that we have imported. Create the tensor using NumPy with the following:
+```Python
+ndarray = np.array([0, 1, 2])
+t = torch.from_numpy(ndarray)
+print(t)
+```
+
+
+
+## Currently Fixing this
 Once you are ready to go you can run the program with the following command line!
 ```
 python3 nnpytorch.py
 ```
 
-## What does this do? 
+
+
+
+## What does this code do? 
 
 To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
 ```Python
@@ -47,4 +97,4 @@ These are datasets inside the Pytorch library that you can see will be donwloade
 ```Python
 print(training_data[0])
 ```
-
+From the output you will see that it prints out a tensor, 
