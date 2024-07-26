@@ -2,7 +2,7 @@
 
 ## Installation and Getting Started with Pytorch
 
-This is a simple guide to PyTorch, a machine learning library. Pytorch is mainly used for a variety of different applications but is primarely used for computer vision and natural language processing. Pytorch is also a framework that should be explored when looking towards deep learning. For this guide we will learn about how it works and set up a simple model.
+This is a simple guide to *PyTorch*, a machine learning library. Pytorch is mainly used for a variety of different applications but is primarely used for computer vision and natural language processing. Pytorch is also a framework that should be explored when looking towards deep learning. For this guide we will learn about how it works and set up a simple model.
 
 In order to first do this you need to be able to download the libraries. For this you have two options you can either do it through Anaconda, or with Pip, for this guide we will be using pip. To do this first we need to have pip installed, you can use the following line:
 ```
@@ -33,7 +33,7 @@ Now we can look at a crucial data structure for Pytorch, which are tensors.
 
 ## What are tensors?
 Tensors are extremely similer to the arrays that we have used in Pyton to hold values, they are also similer to matrices, the use of tensors is to perform mathematical operations on large sets of data. We can view a tensor with the following code:
-```
+```Python
 x = torch.empty(3, 4)
 print(type(x))
 print(x)
@@ -43,7 +43,7 @@ You can then run your file with the following command line:
 python3 testPytorch.py
 ```
 For your output you should see a 2-dimensional tensor with 3 rows and 4 columns. For the most part tensors work with different values such as 0, and 1 and everything in between so lets create those as well with the following code:
-```
+```Python
 zeros = torch.zeros(2, 3)
 print(zeros)
 
@@ -58,22 +58,54 @@ Now we have an additional 3 more tensors, one populated with zeroes, another wit
 ```
 import numpy as np
 ```
-You can comment out everything we have so far using the "#" symbol but leave everything that we have imported. Create the tensor using NumPy with the following:
+You can comment out everything we have so far using the *#* symbol but leave everything that we have imported. Create the tensor using NumPy with the following:
 ```Python
 ndarray = np.array([0, 1, 2])
 t = torch.from_numpy(ndarray)
 print(t)
 ```
+Now that you have made a tensor with Pytorch as well as with NumPy, we can look at the different attributes of tensors which include the shape, data type, as well as the device. Since we initilized *t* with the tensor, you can check the attributes with the following line of code:
+```Python
+print(t.shape)
+print(t.dtype)
+print(t.device)
+```
+Lastly we can do some operates with tensors such as transposing tensors, multiplying them, and indexing the tensors. We can see these operation in action by first creating a tensor filled with zeroes with the following line:
+```Python
+zeros_tensor = torch.zeros((2, 3))
+print(zeros_tensor)
+```
+When printing it out we can see the tensor is populated with zeroes, lets transpose it with the following line!:
+```Python
+transposed = zeros_tensor.T
+print(transposed)
+```
+After printing this out we can see that now our tensor is transposed, this moves the data around in the tensor. Now we can go ahead and pull out a certain index that we want from this transposed tensor, for example with the second index with the following line:
+```Python
+print(transposed[2])
+#Lets get another index
+print(transposed[:,0])
+```
+
+#Currently fixing this
+## Insert how to git clone your repo in order to start working on the code.
+This is ssh
+```
+mkdir PyTorch
+cd PyTorch
+git init
+git clone git@github.com:ChristopherM03/MachineLearn.git
+```
+This is hhtps
+```
+git clone https://github.com/ChristopherM03/MachineLearn.git
+```
 
 
-
-## Currently Fixing this
 Once you are ready to go you can run the program with the following command line!
 ```
 python3 nnpytorch.py
 ```
-
-
 
 
 ## What does this code do? 
