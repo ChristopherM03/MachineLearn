@@ -1,6 +1,7 @@
 # MachineLearn
 
 ## Installation and Getting Started with Pytorch
+------
 
 This is a simple guide to *PyTorch*, a machine learning library. Pytorch is mainly used for a variety of different applications but is primarely used for computer vision and natural language processing. Pytorch is also a framework that should be explored when looking towards deep learning. For this guide we will learn about how it works and set up a simple model.
 
@@ -86,30 +87,42 @@ print(transposed[2])
 #Lets get another index
 print(transposed[:,0])
 ```
+Now with the *zeros_tensor* variable that we already created, lets create a tensors filled with 1's that is three by three. Try to do this by yourself first! If you can't use the following line to create the ones_tensor and then lets create a initialize a product variable that multiplies these two tensors:
+```Python
+ones_tensor = torch.ones(3, 3)
+product = torch.matmul(zeros_tensor, ones_tensor)
+print(product)
+```
+That was a quick introduction to tensors and working with Pytorch in Python! Now we can take view at the code. In order to do that first we have to clone the repo.
 
-#Currently fixing this
-## Insert how to git clone your repo in order to start working on the code.
-This is ssh
+
+
+
+# Cloning this repo
+------
+
+In your command line what you will want to do first is create a directory in order to have the repo inside that directory, so I would first do the following:
 ```
 mkdir PyTorch
 cd PyTorch
 git init
+```
+This will create the directory with the repo. Now you can use either of the two lines, if you have your SSH key enabaled and set you can use the following command:
+```
 git clone git@github.com:ChristopherM03/MachineLearn.git
 ```
-This is hhtps
+If not then you can use the following HTTPS command:
 ```
 git clone https://github.com/ChristopherM03/MachineLearn.git
 ```
 
-
-Once you are ready to go you can run the program with the following command line!
+Once you are ready to go and have the repo set up on your machine, you can run the program with the following command line!
 ```
 python3 nnpytorch.py
 ```
 
-
-## What does this code do? 
-
+## What does this code do?
+------
 To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
 ```Python
 import torch
@@ -129,4 +142,5 @@ These are datasets inside the Pytorch library that you can see will be donwloade
 ```Python
 print(training_data[0])
 ```
-From the output you will see that it prints out a tensor, 
+From the output you will see that it prints out a tensor,
+
