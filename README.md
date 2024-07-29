@@ -27,7 +27,7 @@ pip install NumPy
 ```
 Once everythin has been downloaded you can now get started with the code.
 
-# What does this code do?
+# Using the code
 ------
 First what you will want to do is clone the repo. Now you can use either of the two lines, if you have your SSH key enabaled and set you can use the following command:
 ```
@@ -42,38 +42,13 @@ Once you are ready to go and have the repo set up on your machine, you can run t
 ```
 python3 nnpytorch.py
 ```
-To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
-```Python
-import torch
-from torchvision import datasets
-from torchvision.transforms import ToTensor
-import matplotlib.pyplot as plt
-```
+The basic premise of the code is to use data which is already in the library for Pytorch and visualize it, then create a small nueral network and train the model, and be able to see not only the accuracy but also the loss for the actual nueral network model.
 
-In the next chunk of code, this is a simple way of loading in already created data from the Pytorch library. When first running the program you will be running these two lines and downloading data.
+# For teachers
+To learn more you can click on the following [link](https://markgalassi.codeberg.page/small-courses-html/) and click on the Machine Learning chapter (insert chapter number). Additionally this website offers a wide variety of other courses to follow!
 
-```Python
-training_data = datasets.MNIST(root=".", train=True, download=True, transform=ToTensor())
+# For students
+If you would like to understand the code more and follow it step by step, click the following documentation link (insert pdf for code). This is a step by step guide of how to start cloning your repo as well as looking at how the code works. 
 
-test_data = datasets.MNIST(root=".", train=False, download=True, transform=ToTensor())
-```
-These are datasets inside the Pytorch library that you can see will be donwloaded on your device. This is now data that has been downloaded from the torch library which we can use to visualize that data. For the next chunk of code, that will be used to visualize the data:
-```Python
-figure = plt.figure(figsize=(8, 8))
-cols, rows = 5, 5
-
-for i in range(1, cols * rows + 1):
-    sample_idx = torch.randint(len(training_data), size=(1,)).item()
-    img, label = training_data[sample_idx]
-    figure.add_subplot(rows, cols, i)
-    plt.axis("off")
-    plt.imshow(img.squeeze(), cmap="gray")
-plt.show()
-```
-First we create the figure and then we iterate throughout its columns and rows. We also add the subplot in order to be able to visualize the data. Now after running the code you can visualize a plot of data that are different numbers. This is a simple introduction to using data that Pytorch already has available. Moving on we want our focus now to be on a neural network, in order to do that we need to be able to chunk up the data into batch sizes. We do the following with:
-```Python
-from torch.utils.data import DataLoader
-
-loaded_train = DataLoader(training_data, batch_size=64, shuffle=True)
-loaded_test = DataLoader(test_data, batch_size=64, shuffle=True)
-```
+# Acknowledgment
+This is a project that I worked with the Institue for computing in Research which you can click at this [link](https://computinginresearch.org/). The insitute focuses on allowing students to use advanced computing methods for research and scholarship. To learn more click on the link provided.
