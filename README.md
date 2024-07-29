@@ -25,89 +25,11 @@ For our demo lets install one more thing which is NumPy, in the command line run
 ```
 pip install NumPy
 ```
-After all of this now you can run the code provided, but before this lets learn a little about Pytorch and some of its structures. In your favorite text editor create a new Python file named "testPytorch.py". Inside that file import the necessary libraries, for this demo you will need to import the torch library so at the start of the file insert the following:
-```
-import torch
-```
-Now we can look at a crucial data structure for Pytorch, which are tensors.
+Once everythin has been downloaded you can now get started with the code.
 
-
-## What are tensors?
-Tensors are extremely similer to the arrays that we have used in Pyton to hold values, they are also similer to matrices, the use of tensors is to perform mathematical operations on large sets of data. We can view a tensor with the following code:
-```Python
-x = torch.empty(3, 4)
-print(type(x))
-print(x)
-```
-You can then run your file with the following command line:
-```
-python3 testPytorch.py
-```
-For your output you should see a 2-dimensional tensor with 3 rows and 4 columns. For the most part tensors work with different values such as 0, and 1 and everything in between so lets create those as well with the following code:
-```Python
-zeros = torch.zeros(2, 3)
-print(zeros)
-
-ones = torch.ones(2, 3)
-print(ones)
-
-torch.manual_seed(1729)
-random = torch.rand(2, 3)
-print(random)
-```
-Now we have an additional 3 more tensors, one populated with zeroes, another with ones, and the last one with random integers between zero and one. We can also very easily use NumPy to create these tensors, NumPy is a Python library which focuses on creating large arrays and matrices as well as helping with mathematical operations between those data structures. At the top of the file import the following:
-```
-import numpy as np
-```
-You can comment out everything we have so far using the *#* symbol but leave everything that we have imported. Create the tensor using NumPy with the following:
-```Python
-ndarray = np.array([0, 1, 2])
-t = torch.from_numpy(ndarray)
-print(t)
-```
-Now that you have made a tensor with Pytorch as well as with NumPy, we can look at the different attributes of tensors which include the shape, data type, as well as the device. Since we initilized *t* with the tensor, you can check the attributes with the following line of code:
-```Python
-print(t.shape)
-print(t.dtype)
-print(t.device)
-```
-Lastly we can do some operates with tensors such as transposing tensors, multiplying them, and indexing the tensors. We can see these operation in action by first creating a tensor filled with zeroes with the following line:
-```Python
-zeros_tensor = torch.zeros((2, 3))
-print(zeros_tensor)
-```
-When printing it out we can see the tensor is populated with zeroes, lets transpose it with the following line!:
-```Python
-transposed = zeros_tensor.T
-print(transposed)
-```
-After printing this out we can see that now our tensor is transposed, this moves the data around in the tensor. Now we can go ahead and pull out a certain index that we want from this transposed tensor, for example with the second index with the following line:
-```Python
-print(transposed[2])
-#Lets get another index
-print(transposed[:,0])
-```
-Now with the *zeros_tensor* variable that we already created, lets create a tensors filled with 1's that is three by three. Try to do this by yourself first! If you can't use the following line to create the ones_tensor and then lets create a initialize a product variable that multiplies these two tensors:
-```Python
-ones_tensor = torch.ones(3, 3)
-product = torch.matmul(zeros_tensor, ones_tensor)
-print(product)
-```
-That was a quick introduction to tensors and working with Pytorch in Python! Now we can take view at the code. In order to do that first we have to clone the repo.
-
-
-
-
-# Cloning this repo
+# What does this code do?
 ------
-
-In your command line what you will want to do first is create a directory in order to have the repo inside that directory, so I would first do the following:
-```
-mkdir PyTorch
-cd PyTorch
-git init
-```
-This will create the directory with the repo. Now you can use either of the two lines, if you have your SSH key enabaled and set you can use the following command:
+First what you will want to do is clone the repo. Now you can use either of the two lines, if you have your SSH key enabaled and set you can use the following command:
 ```
 git clone git@github.com:ChristopherM03/MachineLearn.git
 ```
@@ -120,9 +42,6 @@ Once you are ready to go and have the repo set up on your machine, you can run t
 ```
 python3 nnpytorch.py
 ```
-
-## What does this code do?
-------
 To start off all the different libraries that we are using are being put in. This includes all the different torch libraries, as well as data sets and matplotlib in order to visualize it.
 ```Python
 import torch
@@ -138,9 +57,23 @@ training_data = datasets.MNIST(root=".", train=True, download=True, transform=To
 
 test_data = datasets.MNIST(root=".", train=False, download=True, transform=ToTensor())
 ```
-These are datasets inside the Pytorch library that you can see will be donwloaded on your device. After that is done with the code, create some new lines and add the following line:
+These are datasets inside the Pytorch library that you can see will be donwloaded on your device. This is now data that has been downloaded from the torch library which we can use to visualize that data. For the next chunk of code, that will be used to visualize the data:
 ```Python
-print(training_data[0])
-```
-From the output you will see that it prints out a tensor,
+figure = plt.figure(figsize=(8, 8))
+cols, rows = 5, 5
 
+for i in range(1, cols * rows + 1):
+    sample_idx = torch.randint(len(training_data), size=(1,)).item()
+    img, label = training_data[sample_idx]
+    figure.add_subplot(rows, cols, i)
+    plt.axis("off")
+    plt.imshow(img.squeeze(), cmap="gray")
+plt.show()
+```
+First we create the figure and then we iterate throughout its columns and rows. We also add the subplot in order to be able to visualize the data. Now after running the code you can visualize a plot of data that are different numbers. This is a simple introduction to using data that Pytorch already has available. Moving on we want our focus now to be on a neural network, in order to do that we need to be able to chunk up the data into batch sizes. We do the following with:
+```Python
+from torch.utils.data import DataLoader
+
+loaded_train = DataLoader(training_data, batch_size=64, shuffle=True)
+loaded_test = DataLoader(test_data, batch_size=64, shuffle=True)
+```
