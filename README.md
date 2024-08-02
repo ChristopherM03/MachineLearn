@@ -48,7 +48,7 @@ The basic premise of the code is to use data which is already in the library for
 To learn more you can click on the following [link](https://markgalassi.codeberg.page/small-courses-html/) and click on the Machine Learning chapter (insert chapter number). Additionally this website offers a wide variety of other courses to follow!
 
 # For students
-If you would like to understand the code more and follow it step by step, click the following documentation link (insert pdf for code). This is a step by step guide of how to start cloning your repo as well as looking at how the code works. 
+If you would like to understand the code more and follow it step by step, click the documentation pdf that is in this repo. This is a step by step guide of how to start cloning your repo as well as looking at how the code works. 
 
 # Acknowledgment
 This is a project that I worked with the Institue for computing in Research which you can click at this [link](https://computinginresearch.org/). The insitute focuses on allowing students to use advanced computing methods for research and scholarship. To learn more click on the link provided.
